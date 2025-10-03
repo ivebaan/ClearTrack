@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'build',
+    'faculty_Signin_Signup',
     'tailwind',
     'theme',
 ]
@@ -77,8 +78,15 @@ WSGI_APPLICATION = 'mywork.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',  # from Supabase
+        'USER': 'postgres.jwiccbopwyzwlhvedfco',
+        'PASSWORD': 'JS2dR&21SAL&#D',
+        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
