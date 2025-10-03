@@ -18,13 +18,13 @@
         <div class="back">
             
            
-            <button>
+            <button onClick="window.location.href='{% url 'GradeFlow' %}'">
                 <img src="{% static "/images/arrow.png" %}" alt="Back to home" margin-right="10px"/>
                 Back to home
             </button>
         </div>
         <div class="gradeFlow">
-            <img src={%static "images/gradeFlow_logo.png" %}"/>
+            <img src={%static "images/gradeFlow_logo.png" %}/>
             <div class="gradeFlow_faculty">
                 <h3>Grade Flow</h3>
                 <p>Faculty Portal</p>
@@ -48,11 +48,11 @@
 
             <!-- Sign In Form -->
             <div id="signin" class="form  active">
-                <div class="text">
+                {% comment %} <div class="text">
                    
                     <p>Email Address</p>
                     <div class="input-wrapper">
-                        <img src="{% static "/images/email.png" %}" alt="email_icon" class="input-icon left">
+                        <img src="{% static '/images/email.png' %}" alt="email_icon" class="input-icon left">
                         <input type="text" placeholder="your.email@university.edu"/>
                     </div>
 
@@ -71,36 +71,58 @@
                 <div class="contact">
                     <p>Need help? Contact</p>
                     <p class="support">IT Support</p>
+                </div> {% endcomment %}
+                <form method="post" class="text">
+                    {% csrf_token %}
+                    <p>Email Address</p>
+                    <div class="input-wrapper">
+                        <img src="{% static 'images/email.png' %}" alt="email_icon" class="input-icon left">
+                        <input type="text" name="username" placeholder="your.email@university.edu" required/>
+                    </div>
+
+                    <p>Password</p>
+                    <div class="input-wrapper">
+                        <img src="{% static 'images/padlock.png' %}" alt="padlock_icon" class="input-icon left">
+                        <input type="password" name="password" placeholder="Enter your password" id="password" required/>
+                        <img src="{% static 'images/visible.png' %}" onclick="togglePassword()" alt="visible_icon" class="input-icon right" id="toggle_icon">
+                    </div>
+                    <p class="forgotPassword">Forgot Password?</p>
+                    <button type="submit" class="buttonSignIn">Sign in to faculty portal</button>
+                </form>
+                <div class="contact">
+                    <p>Need help? Contact</p>
+                    <p class="support">IT Support</p>
                 </div>
+
             </div>
 
             <!-- Sign Up Form -->
             <div id="signup" class="form">
-                <div class="registerName">
-                    <div>
-                        <p>First Name</p>
-                        <div class="input_name_wrapper">
-                            <img src="{% static "/images/profile.png" %}" alt=""  class="input-icon left" >
-                            <input type="text" placeholder="John"/>
+                <form method="post" class="text">
+                    {% csrf_token %}
+                    <div class="registerName">
+                        <div>
+                            <p>First Name</p>
+                            <div class="input_name_wrapper">
+                                <img src="{% static 'images/profile.png' %}" alt="" class="input-icon left">
+                                <input type="text" name="first_name" placeholder="John" required/>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Last Name</p>
+                            <input type="text" name="last_name" placeholder="Doe" required/>
                         </div>
                     </div>
-                    <div>
-                        <p>Last Name</p>
-                        <input type="text" placeholder="Doe"/>
-                    </div>
-                </div>
 
-                <div class="text">
                     <p>Email Address</p>
                     <div class="input-wrapper">
-                        <img src="{% static "/images/email.png" %}" alt="email_icon" class="input-icon left">
-                        <input type="text" placeholder="your.email@university.edu"/>
+                        <img src="{% static 'images/email.png' %}" alt="email_icon" class="input-icon left">
+                        <input type="email" name="email" placeholder="your.email@university.edu" required/>
                     </div>
-                    
 
                     <div class="optionDepartment">
                         <label for="department">Department</label>
-                        <select id="department" name="department">
+                        <select id="department" name="department" required>
                             <option value="" disabled selected hidden>Select your department</option>
                             <option value="library">Library</option>
                             <option value="accounting">Accounting</option>
@@ -113,19 +135,20 @@
 
                     <p>Password</p>
                     <div class="input-wrapper">
-                        <img src="{% static "/images/padlock.png" %}" alt="padlock_icon" class="input-icon left">
-                        <input type="password" placeholder="Create a stron password" id="confirm_password"/>
-                        <img src="{% static "/images/visible.png" %}" onclick="toggle_Confirm_Password()" alt="visible_icon" class="input-icon right" id="confirm_toggle_icon">
+                        <img src="{% static 'images/padlock.png' %}" alt="padlock_icon" class="input-icon left">
+                        <input type="password" name="password" placeholder="Create a strong password" id="password" required/>
+                        <img src="{% static 'images/visible.png' %}" onclick="toggle_Confirm_Password()" alt="visible_icon" class="input-icon right" id="confirm_toggle_icon">
                     </div>
+
                     <p>Confirm Password</p>
                     <div class="input-wrapper">
-                        <img src="{% static "/images/padlock.png" %}" alt="padlock_icon" class="input-icon left">
-                        <input type="password" placeholder="Confirm your password"/>
-                        
+                        <img src="{% static 'images/padlock.png' %}" alt="padlock_icon" class="input-icon left">
+                        <input type="password" name="confirm_password" placeholder="Confirm your password" required/>
                     </div>
-                </div>
 
-                <button type="submit" class="buttonSignUp">Create faculty Account</button>
+                    <button type="submit" class="buttonSignUp">Create faculty Account</button>
+                </form>
+                
                 <hr/>
                 <div class="contact">
                     <p>Need help? Contact</p>
