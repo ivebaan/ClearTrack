@@ -20,8 +20,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('build/', include('build.urls')),
-    path('signin/', include('faculty_Signin_Signup.urls'))
+    path('student/', include('student_signup_signin.urls')),
+    path('faculty/', include('faculty_signup_signin.urls'))
 ]
 if settings.DEBUG:
     # Include django_browser_reload URLs only in DEBUG mode

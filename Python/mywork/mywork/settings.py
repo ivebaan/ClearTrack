@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'build',
-    'faculty_Signin_Signup',
+    'student_signup_signin',
+    'faculty_signup_signin',
     'tailwind',
     'theme',
 ]
@@ -124,8 +124,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = "/static/"
 
-STATIC_URL = 'static/'
+# Add this to tell Django where your static files are stored
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Where collected static files will be stored (used in production)
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
