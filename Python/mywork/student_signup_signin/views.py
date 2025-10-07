@@ -36,27 +36,27 @@ def signup(request):
 
 
 def signin(request):
-    # if request.method == "POST":
-    #     email_address = request.POST['email_address']
-    #     password = request.POST['password']
+    if request.method == "POST":
+        email_address = request.POST['email_address']
+        password = request.POST['password']
 
-    #     # Check if student exists
-    #     try:
-    #         student = Student.objects.get(email_address=email_address)
-    #     except Student.DoesNotExist:
-    #         messages.error(request, "Email not found. Please sign up first.")
-    #         return redirect('signin')
+        # Check if student exists
+        try:
+            student = Student.objects.get(email_address=email_address)
+        except Student.DoesNotExist:
+            messages.error(request, "Email not found. Please sign up first.")
+            return redirect('signin')
 
-    #     # Check password
-    #     if check_password(password, student.password):
-    #         # Password is correct
-    #         messages.success(request, f"Welcome back, {student.first_name}!")
-    #         # You can set a session here if needed
-    #         request.session['student_id'] = student.id
-    #         return redirect('signup')  # replace with your dashboard/home page
-    #     else:
-    #         messages.error(request, "Incorrect password. Please try again.")
-    #         return redirect('signin')
+        # Check password
+        if check_password(password, student.password):
+            # Password is correct
+            messages.success(request, f"Welcome back, {student.first_name}!")
+            # You can set a session here if needed
+            request.session['student_id'] = student.id
+            return redirect('signup')  # replace with your dashboard/home page
+        else:
+            messages.error(request, "Incorrect password. Please try again.")
+            return redirect('signin')
 
     return render(request, 'signin.html')
 

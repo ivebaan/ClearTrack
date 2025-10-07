@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student_signup_signin',
-    'faculty_signup_signin',
+    'Faculty',
     'tailwind',
     'theme',
 ]
