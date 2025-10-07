@@ -271,6 +271,7 @@
             margin-bottom: 15px;
         }
 
+       
 
 
         /* icons inside the placeholder */
@@ -324,7 +325,7 @@
         }
        
         .form{
-            display: none;
+       
             transition: all 0.3s ease;
             
         }

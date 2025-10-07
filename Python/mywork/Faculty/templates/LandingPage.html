@@ -69,7 +69,7 @@
           <li> Preview uploaded files</li>
           <li> Receive instant notifications</li>
         </ul>
-        <button>Access Student Portal →</button>
+        <button onClick="window.location.href='{% url 'signin' %}'">Access Student Portal →</button>
       </div>
 
       <!-- Faculty Portal -->
@@ -87,7 +87,7 @@
           <li> Add comments and feedback</li>
           <li> Manage department workflows</li>
         </ul>
-        <button onClick="window.location.href='{% %}'">Access Faculty Portal →</button>
+        <button onClick="window.location.href='{% url 'faculty_signin' %}'">Access Faculty Portal →</button>
       </div>
     </div>
   </section>

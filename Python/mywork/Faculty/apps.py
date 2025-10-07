@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FacultySignupSignin(AppConfig):
+class FacultyConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'faculty_signup_signin'
+    name = 'Faculty'
